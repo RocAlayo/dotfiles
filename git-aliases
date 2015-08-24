@@ -1,0 +1,37 @@
+
+alias gs="git status"
+alias gl="git log"
+alias gc="git commit"
+alias gcaa="git commit -a --amend"
+alias gca="git commit -a"
+alias gcd="git checkout development"
+alias ghd="git push origin development"
+alias gp="git pull --rebase"
+
+gitPush() {
+	git push origin `git rev-parse --abbrev-ref HEAD`
+}
+
+gitPushForce() {
+	git push origin `git rev-parse --abbrev-ref HEAD` --force
+}
+
+gitNewBranch() {
+  git checkout development
+	git branch $1
+  git checkout $1
+}
+
+gitCheckout() {
+  git checkout $1
+}
+
+gitAdd() {
+  git add $1
+}
+
+alias gh=gitPush
+alias ghf=gitPushForce
+alias gnb=gitNewBranch
+alias gch=gitCheckout
+alias ga=gitAdd
